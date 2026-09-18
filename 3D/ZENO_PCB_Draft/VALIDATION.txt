@@ -1,0 +1,4 @@
+26 electrical footprints; 4 mounting holes; 29 named nets.
+Pad coordinates checked inside board outline. XML parsed and PCB parentheses balanced.
+No KiCad parser, ERC, DRC, electrical operation, or mechanical fit validation performed.
+Unrouted: zero copper tracks. Do not fabricate.

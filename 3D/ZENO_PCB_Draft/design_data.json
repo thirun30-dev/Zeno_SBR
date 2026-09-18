@@ -1,0 +1,954 @@
+[
+  {
+    "ref": "U1",
+    "value": "ESP32_DEVKIT_V1_30PIN_ASSUMED",
+    "x": 24,
+    "y": 17,
+    "pins": [
+      "+5V",
+      "GND",
+      "DISP_DIN",
+      "NC_D12",
+      "PWMB",
+      "AIN2",
+      "AIN1",
+      "PWMA",
+      "DISP_CS",
+      "DISP_CLK",
+      "ENC_L_B",
+      "ENC_L_A",
+      "ENC_R_B",
+      "ENC_R_A",
+      "NC_EN",
+      "+3V3",
+      "GND",
+      "NC_D15",
+      "NC_D2",
+      "CAL",
+      "NC_RX2",
+      "NC_TX2",
+      "NC_D5",
+      "BIN1",
+      "BIN2",
+      "SDA",
+      "NC_RX0",
+      "NC_TX0",
+      "SCL",
+      "STBY"
+    ],
+    "coords": [
+      [
+        0,
+        0.0
+      ],
+      [
+        0,
+        2.54
+      ],
+      [
+        0,
+        5.08
+      ],
+      [
+        0,
+        7.62
+      ],
+      [
+        0,
+        10.16
+      ],
+      [
+        0,
+        12.7
+      ],
+      [
+        0,
+        15.24
+      ],
+      [
+        0,
+        17.78
+      ],
+      [
+        0,
+        20.32
+      ],
+      [
+        0,
+        22.86
+      ],
+      [
+        0,
+        25.4
+      ],
+      [
+        0,
+        27.94
+      ],
+      [
+        0,
+        30.48
+      ],
+      [
+        0,
+        33.02
+      ],
+      [
+        0,
+        35.56
+      ],
+      [
+        25.4,
+        0.0
+      ],
+      [
+        25.4,
+        2.54
+      ],
+      [
+        25.4,
+        5.08
+      ],
+      [
+        25.4,
+        7.62
+      ],
+      [
+        25.4,
+        10.16
+      ],
+      [
+        25.4,
+        12.7
+      ],
+      [
+        25.4,
+        15.24
+      ],
+      [
+        25.4,
+        17.78
+      ],
+      [
+        25.4,
+        20.32
+      ],
+      [
+        25.4,
+        22.86
+      ],
+      [
+        25.4,
+        25.4
+      ],
+      [
+        25.4,
+        27.94
+      ],
+      [
+        25.4,
+        30.48
+      ],
+      [
+        25.4,
+        33.02
+      ],
+      [
+        25.4,
+        35.56
+      ]
+    ],
+    "notes": "Component-side top view, USB at rear. Left row VIN..EN; right row 3V3..D23. 25.4 mm row spacing and 2.54 mm pitch ASSUMED; compare physical board before fabrication."
+  },
+  {
+    "ref": "U2",
+    "value": "TB6612FNG_MODULE_ASSUMED",
+    "x": 90,
+    "y": 40,
+    "pins": [
+      "PWMA",
+      "AIN2",
+      "AIN1",
+      "STBY",
+      "BIN1",
+      "BIN2",
+      "PWMB",
+      "GND",
+      "VM",
+      "+3V3",
+      "GND",
+      "M_L_P",
+      "M_L_N",
+      "M_R_N",
+      "M_R_P",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0.0
+      ],
+      [
+        0,
+        2.54
+      ],
+      [
+        0,
+        5.08
+      ],
+      [
+        0,
+        7.62
+      ],
+      [
+        0,
+        10.16
+      ],
+      [
+        0,
+        12.7
+      ],
+      [
+        0,
+        15.24
+      ],
+      [
+        0,
+        17.78
+      ],
+      [
+        15.24,
+        0.0
+      ],
+      [
+        15.24,
+        2.54
+      ],
+      [
+        15.24,
+        5.08
+      ],
+      [
+        15.24,
+        7.62
+      ],
+      [
+        15.24,
+        10.16
+      ],
+      [
+        15.24,
+        12.7
+      ],
+      [
+        15.24,
+        15.24
+      ],
+      [
+        15.24,
+        17.78
+      ]
+    ],
+    "notes": "Pin sequence from supplied labelled face; verify which face is upward when plugged in. 15.24 mm row spacing ASSUMED."
+  },
+  {
+    "ref": "U3",
+    "value": "MPU9250_6500_MODULE_ASSUMED",
+    "x": 82,
+    "y": 9,
+    "pins": [
+      "+3V3",
+      "GND",
+      "SCL",
+      "SDA",
+      "NC_EDA",
+      "NC_ECL",
+      "GND",
+      "NC_INT",
+      "+3V3",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0.0
+      ],
+      [
+        0,
+        2.54
+      ],
+      [
+        0,
+        5.08
+      ],
+      [
+        0,
+        7.62
+      ],
+      [
+        0,
+        10.16
+      ],
+      [
+        0,
+        12.7
+      ],
+      [
+        0,
+        15.24
+      ],
+      [
+        0,
+        17.78
+      ],
+      [
+        0,
+        20.32
+      ],
+      [
+        0,
+        22.86
+      ]
+    ],
+    "notes": "2.54 mm pitch ASSUMED; AD0 low, NCS high, FSYNC low. Module VCC regulator/dropout must be checked; sensor identity unconfirmed."
+  },
+  {
+    "ref": "J1",
+    "value": "LEFT_MOTOR_JST_PH_6_ASSUMED",
+    "x": 7,
+    "y": 45,
+    "pins": [
+      "M_L_N",
+      "M_L_P",
+      "+3V3",
+      "GND",
+      "ENC_L_A",
+      "ENC_L_B"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "notes": "2.0 mm pitch PLACEHOLDER, not validated JST housing. Cable pin order is proposed, not measured."
+  },
+  {
+    "ref": "J2",
+    "value": "RIGHT_MOTOR_JST_PH_6_ASSUMED",
+    "x": 123,
+    "y": 45,
+    "pins": [
+      "M_R_N",
+      "M_R_P",
+      "+3V3",
+      "GND",
+      "ENC_R_A",
+      "ENC_R_B"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "notes": "Same assumptions as J1; encoder supply and logic must support 3.3 V."
+  },
+  {
+    "ref": "J3",
+    "value": "EYE_INPUT_5PIN",
+    "x": 36,
+    "y": 71,
+    "pins": [
+      "+5V",
+      "GND",
+      "DIN_5V",
+      "CS_5V",
+      "CLK_5V"
+    ],
+    "coords": [
+      [
+        0.0,
+        0
+      ],
+      [
+        2.54,
+        0
+      ],
+      [
+        5.08,
+        0
+      ],
+      [
+        7.62,
+        0
+      ],
+      [
+        10.16,
+        0
+      ]
+    ],
+    "notes": ""
+  },
+  {
+    "ref": "J4",
+    "value": "EYE_INPUT_5PIN",
+    "x": 78,
+    "y": 71,
+    "pins": [
+      "+5V",
+      "GND",
+      "CHAIN_DOUT",
+      "CS_5V",
+      "CLK_5V"
+    ],
+    "coords": [
+      [
+        0.0,
+        0
+      ],
+      [
+        2.54,
+        0
+      ],
+      [
+        5.08,
+        0
+      ],
+      [
+        7.62,
+        0
+      ],
+      [
+        10.16,
+        0
+      ]
+    ],
+    "notes": ""
+  },
+  {
+    "ref": "J5",
+    "value": "EYE1_DOUT_RETURN",
+    "x": 63,
+    "y": 70,
+    "pins": [
+      "CHAIN_DOUT",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        2.54,
+        0
+      ]
+    ],
+    "notes": "Connect eye 1 output DOUT here. J4 DIN gets this net, never ESP32 input."
+  },
+  {
+    "ref": "J6",
+    "value": "REAR_CAL_BUTTON",
+    "x": 64,
+    "y": 5,
+    "pins": [
+      "GND",
+      "CAL",
+      "+5V",
+      "GND"
+    ],
+    "coords": [
+      [
+        0.0,
+        0
+      ],
+      [
+        2.54,
+        0
+      ],
+      [
+        5.08,
+        0
+      ],
+      [
+        7.62,
+        0
+      ]
+    ],
+    "notes": "COM,NO,LED+,LED-. NC unused. Actual switch terminals must be identified."
+  },
+  {
+    "ref": "J7",
+    "value": "REGULATED_5V_INPUT",
+    "x": 108,
+    "y": 7,
+    "pins": [
+      "+5V",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5.08,
+        0
+      ]
+    ],
+    "notes": "External regulated 5 V only; no raw battery. Fuse and reverse-polarity protection upstream."
+  },
+  {
+    "ref": "J8",
+    "value": "REGULATED_MOTOR_INPUT",
+    "x": 117,
+    "y": 25,
+    "pins": [
+      "VM",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5.08,
+        0
+      ]
+    ],
+    "notes": "External regulated nominal 3 V for stated 3 V motors. Supply/driver current suitability pending stall current."
+  },
+  {
+    "ref": "U4",
+    "value": "SN74AHCT125N_DIP14",
+    "x": 62,
+    "y": 44,
+    "pins": [
+      "GND",
+      "DISP_DIN",
+      "DIN_5V",
+      "GND",
+      "DISP_CS",
+      "CS_5V",
+      "GND",
+      "+5V",
+      "+5V",
+      "GND",
+      "NC_BUF_OUT",
+      "GND",
+      "DISP_CLK",
+      "CLK_5V"
+    ],
+    "coords": [
+      [
+        0,
+        0.0
+      ],
+      [
+        0,
+        2.54
+      ],
+      [
+        0,
+        5.08
+      ],
+      [
+        0,
+        7.62
+      ],
+      [
+        0,
+        10.16
+      ],
+      [
+        0,
+        12.7
+      ],
+      [
+        0,
+        15.24
+      ],
+      [
+        7.62,
+        0.0
+      ],
+      [
+        7.62,
+        2.54
+      ],
+      [
+        7.62,
+        5.08
+      ],
+      [
+        7.62,
+        7.62
+      ],
+      [
+        7.62,
+        10.16
+      ],
+      [
+        7.62,
+        12.7
+      ],
+      [
+        7.62,
+        15.24
+      ]
+    ],
+    "notes": "PCB pad numbering is explicit DIP numbering. 5 V supply, three channels active, fourth disabled.",
+    "numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      14,
+      13,
+      12,
+      11,
+      10,
+      9,
+      8
+    ]
+  },
+  {
+    "ref": "R1",
+    "value": "10k",
+    "x": 15,
+    "y": 38,
+    "pins": [
+      "ENC_L_A",
+      "+3V3"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5.08,
+        0
+      ]
+    ],
+    "notes": "Encoder pull-ups populate only for verified compatible encoder outputs."
+  },
+  {
+    "ref": "R2",
+    "value": "10k",
+    "x": 15,
+    "y": 42,
+    "pins": [
+      "ENC_L_B",
+      "+3V3"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5.08,
+        0
+      ]
+    ],
+    "notes": "Encoder pull-ups populate only for verified compatible encoder outputs."
+  },
+  {
+    "ref": "R3",
+    "value": "10k",
+    "x": 61,
+    "y": 24,
+    "pins": [
+      "ENC_R_A",
+      "+3V3"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5.08,
+        0
+      ]
+    ],
+    "notes": "Encoder pull-ups populate only for verified compatible encoder outputs."
+  },
+  {
+    "ref": "R4",
+    "value": "10k",
+    "x": 61,
+    "y": 28,
+    "pins": [
+      "ENC_R_B",
+      "+3V3"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5.08,
+        0
+      ]
+    ],
+    "notes": "Encoder pull-ups populate only for verified compatible encoder outputs."
+  },
+  {
+    "ref": "R5",
+    "value": "10k",
+    "x": 63,
+    "y": 13,
+    "pins": [
+      "CAL",
+      "+3V3"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5.08,
+        0
+      ]
+    ],
+    "notes": "Encoder pull-ups populate only for verified compatible encoder outputs."
+  },
+  {
+    "ref": "R6",
+    "value": "10k_STBY_PULLDOWN",
+    "x": 87,
+    "y": 63,
+    "pins": [
+      "STBY",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5.08,
+        0
+      ]
+    ],
+    "notes": ""
+  },
+  {
+    "ref": "C1",
+    "value": "100nF",
+    "x": 74,
+    "y": 44,
+    "pins": [
+      "+5V",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        2.54,
+        0
+      ]
+    ],
+    "notes": ""
+  },
+  {
+    "ref": "C2",
+    "value": "100nF",
+    "x": 88,
+    "y": 9,
+    "pins": [
+      "+3V3",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        2.54,
+        0
+      ]
+    ],
+    "notes": ""
+  },
+  {
+    "ref": "C3",
+    "value": "100nF",
+    "x": 108,
+    "y": 38,
+    "pins": [
+      "+3V3",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        2.54,
+        0
+      ]
+    ],
+    "notes": ""
+  },
+  {
+    "ref": "C4",
+    "value": "100nF",
+    "x": 110,
+    "y": 42,
+    "pins": [
+      "VM",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        2.54,
+        0
+      ]
+    ],
+    "notes": ""
+  },
+  {
+    "ref": "C5",
+    "value": "470uF_10V",
+    "x": 110,
+    "y": 55,
+    "pins": [
+      "VM",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5,
+        0
+      ]
+    ],
+    "notes": "Polarized: pad 1 positive; 8 mm diameter placeholder."
+  },
+  {
+    "ref": "C6",
+    "value": "220uF_10V",
+    "x": 101,
+    "y": 14,
+    "pins": [
+      "+5V",
+      "GND"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5,
+        0
+      ]
+    ],
+    "notes": "Polarized: pad 1 positive; 8 mm diameter placeholder."
+  },
+  {
+    "ref": "R7",
+    "value": "4k7_DNP",
+    "x": 64,
+    "y": 35,
+    "pins": [
+      "SDA",
+      "+3V3"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5.08,
+        0
+      ]
+    ],
+    "notes": "Optional I2C pull-up; normally DNP if module already provides pull-ups to 3.3 V."
+  },
+  {
+    "ref": "R8",
+    "value": "4k7_DNP",
+    "x": 72,
+    "y": 35,
+    "pins": [
+      "SCL",
+      "+3V3"
+    ],
+    "coords": [
+      [
+        0,
+        0
+      ],
+      [
+        5.08,
+        0
+      ]
+    ],
+    "notes": "Optional I2C pull-up; normally DNP if module already provides pull-ups to 3.3 V."
+  }
+]
