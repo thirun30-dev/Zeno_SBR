@@ -17,15 +17,16 @@
 
 #include <Arduino.h>
 
-constexpr uint8_t AIN1 = 25;
-constexpr uint8_t AIN2 = 26;
-constexpr uint8_t PWMA = 27;
+// Same pin map as Code/ZENO_code/ZENO_code.ino
+constexpr uint8_t PWMA = 25;
+constexpr uint8_t AIN1 = 26;
+constexpr uint8_t AIN2 = 27;
 
-constexpr uint8_t BIN1 = 32;
-constexpr uint8_t BIN2 = 33;
-constexpr uint8_t PWMB = 14;
+constexpr uint8_t PWMB = 33;
+constexpr uint8_t BIN1 = 14;
+constexpr uint8_t BIN2 = 13;
 
-constexpr uint8_t STBY = 13;
+constexpr uint8_t STBY = 32;
 
 // Mirrored motors often require opposite electrical directions.
 // Change the corresponding value if a wheel rotates the wrong way.

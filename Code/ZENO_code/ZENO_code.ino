@@ -41,7 +41,7 @@
 
 // ================================================================
 // PIN MAP  (matches the previous ZENO_code.ino / README / MPU9250.ino)
-// NOTE: Code/Motor_Test/Motor_Test.ino and the PCB draft use
+// NOTE: Motor_Test.ino uses this same map; the PCB draft uses
 // DIFFERENT pins. Make sure this block matches your real wiring.
 // ================================================================
 

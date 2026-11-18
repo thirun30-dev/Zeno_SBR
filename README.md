@@ -215,7 +215,7 @@ Encoders Used by Main Firmware (v2)
 | Right encoder A | GPIO 19 |
 | Right encoder B | GPIO 18 |
 
-> ⚠️ `Code/Motor_Test/Motor_Test.ino` and the PCB draft use **different** pin maps from the main firmware. Check that the `PIN MAP` block at the top of `ZENO_code.ino` matches your real wiring before you power the motors.
+> ⚠️ The PCB draft (`3D/ZENO_PCB_Draft`) uses a **different** pin map from the firmware (`ZENO_code.ino` and `Motor_Test.ino` now match each other). Check that the `PIN MAP` block at the top of `ZENO_code.ino` matches your real wiring before you power the motors.
 
 🛠️ Firmware v2: What Was Fixed
 
