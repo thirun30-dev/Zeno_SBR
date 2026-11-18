@@ -82,11 +82,13 @@ N20 Encoder Motors
                                       ▼
                                  ESP32 Control
 
-The current firmware uses starting PID values of:
+The v2 firmware uses a cascade controller (encoder speed/position loop → lean angle → angle PD loop) with starting values of:
 
-Kp = 22.0
+Kp = 25.0  (angle)
 Ki = 0.0
-Kd = 0.85
+Kd = 0.6   (on gyro rate)
+vkp = 12.0 (speed loop)
+xkp = 5.0  (position loop)
 
 These are starting values only and must be tuned for the final ZENO mechanical configuration.
 
@@ -204,100 +206,65 @@ PWMB
 
 GPIO 33
 
-Encoder Input Currently Used by Main Firmware
+Encoders Used by Main Firmware (v2)
 
-Signal
+| Signal | ESP32 |
+|---|---|
+| Left encoder A | GPIO 34 (input-only, needs external pull-up) |
+| Left encoder B | GPIO 35 (input-only, needs external pull-up) |
+| Right encoder A | GPIO 19 |
+| Right encoder B | GPIO 18 |
 
-ESP32
+> ⚠️ `Code/Motor_Test/Motor_Test.ino` and the PCB draft use **different** pin maps from the main firmware. Check that the `PIN MAP` block at the top of `ZENO_code.ino` matches your real wiring before you power the motors.
 
-Encoder A
+🛠️ Firmware v2: What Was Fixed
 
-GPIO 19
+| # | Problem in v1 | Effect | Fix in v2 |
+|---|---|---|---|
+| 1 | Accelerometer angle `atan2(+ax, …)` was fused with `+gyroY`. By the right-hand rule these have **opposite signs** for the same tilt | The complementary filter's gyro and accelerometer terms worked against each other, so the angle estimate was wrong and lagged. This is the main reason ZENO could not balance | Signs are consistent by default (`atan2(-ax, az)` with `+gy`), and the `axis` wizard measures the real axes and signs for your IMU mounting |
+| 2 | No wheel speed or position feedback (encoders were read but not used) | Any trim error made the robot speed up until it fell over | Cascade control: an encoder speed + position loop sets the target lean angle |
+| 3 | D-term taken from the derivative of a noisy error | PWM jitter, plus a kick whenever the target changed (F/R) | D-term comes straight from the gyro rate |
+| 4 | `analogWrite` at about 1 kHz and no deadband compensation | Small corrections didn't move the N20s, so the robot oscillated in a limit cycle | 20 kHz LEDC PWM; the `motor` test measures each motor's deadband |
+| 5 | Loop timed with `delay(4)` and blocking serial prints | Uneven loop rate | Fixed 200 Hz scheduler; telemetry never blocks the control loop |
+| 6 | Gyro set to ±250 dps | Gyro clips during fast recoveries | ±500 dps |
+| 7 | PID values and calibration were lost on reset | Robot had to be re-tuned after every power cycle | `save` stores everything in flash (NVS) |
+| 8 | Left/right motor and encoder directions were hard-coded | Easy to get the wiring wrong without noticing | `motor` test plus `flipl`/`flipr`; encoder signs are set automatically |
 
-Encoder B
+🎮 Serial Commands (v2)
 
-GPIO 18
+Serial Monitor: 115200 baud, line ending **Newline**. The firmware streams telemetry in `name:value` format, so the Arduino **Serial Plotter** can graph pitch, target, PWM and speed live.
 
-🎮 Serial Commands
+| Command | Function |
+|---|---|
+| `motor` | Motor/encoder test (wheels off the ground): checks direction, finds deadband, sets encoder signs |
+| `axis` | IMU axis wizard: hold upright, then tilt toward the front |
+| `c` | Calibrate the balance point and gyro bias |
+| `save` / `load` / `defaults` | Save settings to flash, load them back, or reset to defaults |
+| `b` / `s` | Enable balancing (arms automatically once held upright) / stop |
+| `f` `r` `l` `t` `x` | Forward, reverse, left, right, hold position |
+| `kp` `ki` `kd` `<value>` | Angle loop gains |
+| `vkp` `xkp` `<value>` | Speed and position loop gains |
+| `trim <deg>` | Adjust the balance point |
+| `speed <m/s>` / `turn <pwm>` / `minpwm <pwm>` | Drive speed, turn strength, deadband |
+| `I/i O/o D/d` | Step Kp / Ki / Kd up or down |
+| `flipl` / `flipr` | Reverse the left/right motor |
+| `p` `tel` `enc` `help` | Show settings, toggle telemetry, print encoder counts, list commands |
 
-The main firmware supports interactive control through the Arduino Serial Monitor.
+⚖️ Setup, Calibration and Tuning
 
-Command
+1. Set `WHEEL_DIAMETER_M` and `COUNTS_PER_WHEEL_REV` at the top of the firmware. To check the counts, type `enc`, turn one wheel exactly one revolution by hand, then type `enc` again.
+2. `motor` with the wheels in the air. Both wheels must spin toward the front; if one doesn't, use `flipl`/`flipr` and repeat.
+3. `axis`, then follow the prompts.
+4. Hold ZENO at its balance point, then `c`, then `save`.
+5. `b`, then let go gently.
 
-Function
+Tuning, if the defaults don't work:
+- Set `xkp 0` and `vkp 0`. Raise `kp` until ZENO resists falling and starts to oscillate quickly. Then raise `kd` until the oscillation dies out.
+- Bring back `vkp` (8–15) to stop it running away, then `xkp` (3–8) so it holds its spot.
+- If it always drifts one way, adjust `trim` in steps of about 0.3°.
+- If it runs away *faster* when `vkp` is raised, the IMU front and the wheel front don't agree. Re-run `motor` and `axis`.
 
-C
-
-Calibrate IMU
-
-B
-
-Enable balancing
-
-S
-
-Stop balancing
-
-F
-
-Move forward
-
-R
-
-Move backward
-
-L
-
-Turn left
-
-T
-
-Turn right
-
-X
-
-Stop movement
-
-P
-
-Print PID values
-
-I
-
-Increase Kp
-
-i
-
-Decrease Kp
-
-O
-
-Increase Ki
-
-o
-
-Decrease Ki
-
-D
-
-Increase Kd
-
-d
-
-Decrease Kd
-
-⚖️ Calibration and Balancing
-
-Before balancing, place ZENO in the intended upright position and send:
-
-C
-
-The firmware calibrates the IMU and establishes the angle reference. Once calibration is complete, balancing can be enabled with:
-
-B
-
-The robot continuously compares the current tilt with the target angle and applies motor corrections. The current firmware contains a 40° fall-angle safety threshold; when the robot exceeds this angle, motor drive is stopped to reduce uncontrolled motion.
-
+The defaults (Kp 25, Kd 0.6, vkp 12, xkp 5) were checked in a simple wheeled-inverted-pendulum simulation. It stayed balanced for centre-of-mass heights from 5 to 13 cm and trim errors of ±2°. Expect to fine-tune them on the real robot.
 🖥️ ZENO Web Dashboard
 
 ZENO is also being developed with a dedicated web dashboard for a more intuitive robot-monitoring and control experience. The dashboard is intended to complement the ESP32 firmware and Serial Monitor rather than replace firmware-side safety logic.
